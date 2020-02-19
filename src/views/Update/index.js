@@ -128,10 +128,11 @@ class Edit extends Component {
                 />,
               )}
 
-              <Button type="primary" htmlType="submit" style={{ margin: '30px 0px' }}>
+              <Button type="primary" htmlType="submit" style={{ margin: '30px 0px 0px' }}>
                 确定更新
-              </Button>
+            </Button>
             </Form.Item>
+
           </Form>
         </Spin>
       </Card>

@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
 import { adminRoutes } from '../../routes'
 
-const { Header, Content } = Layout
+const { Header, Content, Footer } = Layout
 
 @withRouter
 
@@ -36,9 +36,11 @@ class Frame extends Component {
               }
             </Menu>
         </Header>
-        <Content style={{ padding: '0px 20px',margin:'20px 20px 0px',height: '100%' }}>
-          <div style={{ background: '#fff', padding:"20px 10px",height: '100%' }}>{this.props.children}</div>
+        <Content style={{ padding: '0px 20px',margin:'20px 0px 0px ',height: '100%' }}>
+          <div style={{ background: '#fff', padding:"10px 10px",minHeight: '100%' }}>{this.props.children}</div>
+          <Footer style={{ textAlign: 'center',backgroundColor:'#F2F2F2' }}>Copyright  2000-2020 山东大学学生在线 All Rights Reserved. </Footer>
         </Content>
+        
       </Layout>
     )
   }

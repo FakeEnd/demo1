@@ -28,44 +28,47 @@ class Login extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       this.props.isLogin
-      ?
-      <Redirect to='/admin' />
-      :
-      <Card
-        title="登录界面"
-        className="login-style"
-      >
-        <Form onSubmit={this.handleSubmit} className="login-form">
-          <Form.Item>
-            {getFieldDecorator('username', {
-              rules: [{ required: true, message: '学工号/统一身份认证ID' }],
-            })(
-              <Input
-                disabled={this.props.isLoading}
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="用户名"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: '统一身份认证密码' }],
-            })(
-              <Input
-                disabled={this.props.isLoading}
-                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="password"
-                placeholder="密码"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item>
-            <Button loading={this.props.isLoading} type="primary" htmlType="submit" >
-              登录
+        ?
+        <Redirect to='/admin' />
+        :
+        <>
+          <Card
+            title="登录界面"
+            className="login-style"
+          >
+            <Form onSubmit={this.handleSubmit} className="login-form">
+              <Form.Item>
+                {getFieldDecorator('username', {
+                  rules: [{ required: true, message: '学工号/统一身份认证ID' }],
+                })(
+                  <Input
+                    disabled={this.props.isLoading}
+                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="用户名"
+                  />,
+                )}
+              </Form.Item>
+              <Form.Item>
+                {getFieldDecorator('password', {
+                  rules: [{ required: true, message: '统一身份认证密码' }],
+                })(
+                  <Input
+                    disabled={this.props.isLoading}
+                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    type="password"
+                    placeholder="密码"
+                  />,
+                )}
+              </Form.Item>
+              <Form.Item>
+                <Button loading={this.props.isLoading} type="primary" htmlType="submit" >
+                  登录
             </Button>
-          </Form.Item>
-        </Form>
-      </Card>
+              </Form.Item>
+            </Form>      
+          </Card>
+          <p className="login-footer">Copyright  2000-2020 山东大学学生在线 All Rights Reserved.</p>
+        </>
     )
   }
 }

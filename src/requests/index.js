@@ -11,10 +11,22 @@ const service = axios.create({
 
 service.interceptors.response.use((resp) => {
   if (resp.data.data === "请登录后重试") {
-    message.error('请登录后重试', 5)    
-  } 
+    message.error('请登录后重试', 5)
+  }
   return resp
 })
+
+export const deletecourse = (data) => {
+  let pa = qs.stringify(data);
+  return service.post('/edu/course_addition/delete',
+    pa,
+    {
+      headers: {
+        'Token': window.sessionStorage.getItem('Token')
+      }
+    }
+  )
+}
 
 export const update = (data) => {
   let pa = qs.stringify(data);
@@ -26,6 +38,7 @@ export const update = (data) => {
   )
 }
 
+
 export const search = (prop, key) => {
   return service.get('/edu/course_addition/search', {
     params: {
@@ -36,8 +49,12 @@ export const search = (prop, key) => {
   })
 }
 
-export const all = () => {
-  return service.get('/edu/course_addition',{
+export const all = (offset) => {
+  return service.get('/edu/course_addition', {
+    params: {
+      offset
+    },
     headers: { 'Token': window.sessionStorage.getItem('Token') }
   })
 }
+

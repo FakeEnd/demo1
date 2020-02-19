@@ -15,6 +15,12 @@ export const mainRoutes = [{
 }]
 
 export const adminRoutes = [{
+  pathname: '/admin/all',
+  component: All,
+  title: '获取课程附加信息列表',
+  icon: 'unordered-list',
+  isNav: true,
+},{
   pathname: '/admin/search',
   component: Search,
   title: '搜索课程附加信息',
@@ -25,11 +31,5 @@ export const adminRoutes = [{
   component: Update,
   title: '更新课程附加信息',
   icon: 'form',
-  isNav: true,
-},{
-  pathname: '/admin/all',
-  component: All,
-  title: '获取课程附加信息列表',
-  icon: 'unordered-list',
   isNav: true,
 }]
